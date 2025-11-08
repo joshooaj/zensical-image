@@ -1,7 +1,7 @@
 ARG BASE_IMAGE="python:3.14-slim"
 FROM ${BASE_IMAGE}
 
-ARG ZENSICAL_VERSION="0.0.5"
+ARG ZENSICAL_VERSION
 
 LABEL org.opencontainers.image.title="Zensical"
 LABEL org.opencontainers.image.description="A modern static site generator built by the creators of Material for MkDocs"
@@ -14,8 +14,11 @@ LABEL org.opencontainers.image.license="MIT"
 
 RUN groupadd -r zensical && useradd -r -g zensical -m -d /home/zensical zensical
 
-RUN pip install --upgrade pip \
-    && pip install --no-cache-dir zensical==${ZENSICAL_VERSION} \
+RUN if [ -z "$ZENSICAL_VERSION" ]; then \
+      pip install --no-cache-dir zensical; \
+    else \
+      pip install --no-cache-dir zensical==$ZENSICAL_VERSION; \
+    fi \
     && mkdir -p /docs \
     && chown -R zensical:zensical /docs /home/zensical
 
