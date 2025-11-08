@@ -25,6 +25,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: Get Zensical version
+        shell: pwsh
+        run: |
+          "ZENSICAL_VERSION=$(((cat req*.txt | sls '^zensical') -split '==')[1])" | Set-Content $GITHUB_ENV
+
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
@@ -32,14 +37,8 @@ jobs:
           images: |
             ${{ env.IMAGE_REPO }}
           tags: |
-            type=schedule
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=sha
             type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{version}},value=${{ env.ZENSICAL_VERSION }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -47,7 +46,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Log in to Docker Hub (if secrets present)
+      - name: Log in to Docker Hub
         id: login
         uses: docker/login-action@v3
         with:
@@ -64,19 +63,7 @@ jobs:
           push: ${{ github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/') }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            ZENSICAL_VERSION=${{ env.ZENSICAL_VERSION }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-      # - name: Quick smoke test (run built image locally)
-      #   run: |
-      #     img=${{ env.IMAGE_REPO }}:${{ env.IMAGE_TAG_SHA }}
-      #     docker run -d --rm -p 8000:8000 --name zensical-smoke $img || (docker logs zensical-smoke || true; exit 1)
-      #     # wait for the server
-      #     for i in {1..15}; do
-      #       if curl -sSf http://localhost:8000 >/dev/null 2>&1; then
-      #         echo "server up"; break
-      #       fi
-      #       sleep 1
-      #     done
-      #     curl -sSf http://localhost:8000/ || (docker logs zensical-smoke && exit 1)
-      #     docker stop zensical-smoke || true
