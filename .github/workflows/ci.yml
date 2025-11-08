@@ -8,16 +8,16 @@ on:
       - 'README.md'
       - 'LICENSE.md'
       - '*.png'
-      - '.github\copilot-instructions.md'
-      - '.github\dependabot.yml'
+      - '.github/copilot-instructions.md'
+      - '.github/dependabot.yml'
   pull_request:
     branches: [ 'main' ]
     paths-ignore:
       - 'README.md'
       - 'LICENSE.md'
       - '*.png'
-      - '.github\copilot-instructions.md'
-      - '.github\dependabot.yml'
+      - '.github/copilot-instructions.md'
+      - '.github/dependabot.yml'
 
 jobs:
   build-and-publish:
