@@ -2,6 +2,7 @@
 
 [![Build](https://github.com/joshooaj/zensical-image/actions/workflows/ci.yml/badge.svg)](https://github.com/joshooaj/zensical-image/actions/workflows/ci.yml)
 ![Docker Image Version](https://img.shields.io/docker/v/joshooaj/zensical)
+![GitHub License](https://img.shields.io/github/license/joshooaj/zensical-image)
 
 ![Screenshot of default Zensical site](https://raw.githubusercontent.com/joshooaj/zensical-image/main/default-site.png)
 
