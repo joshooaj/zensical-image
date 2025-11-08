@@ -46,7 +46,7 @@ jobs:
             ${{ env.IMAGE_REPO }}
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
-            type=semver,pattern={{version}},value=v${{ env.ZENSICAL_VERSION }}
+            type=semver,pattern=v{{version}},value=${{ env.ZENSICAL_VERSION }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
