@@ -14,11 +14,9 @@ LABEL org.opencontainers.image.license="MIT"
 
 RUN groupadd -r zensical && useradd -r -g zensical -m -d /home/zensical zensical
 
-RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/* \
-    && pip install --upgrade pip \
+RUN pip install --upgrade pip \
     && pip install --no-cache-dir zensical==${ZENSICAL_VERSION} \
     && mkdir -p /docs \
-    && zensical new /docs \
     && chown -R zensical:zensical /docs /home/zensical
 
 USER zensical
