@@ -1,4 +1,4 @@
-# Zensical Docker Image
+# Zensical Docker Image (Unofficial)
 
 [![Build](https://github.com/joshooaj/zensical-image/actions/workflows/ci.yml/badge.svg)](https://github.com/joshooaj/zensical-image/actions/workflows/ci.yml)
 ![Docker Image Version](https://img.shields.io/docker/v/joshooaj/zensical)
@@ -7,9 +7,7 @@
 
 This is an unofficial [Zensical](https://zensical.org/) container image for building and publishing
 static sites using content authored in markdown format. Zensical is a new SSG built by same folks
-behind the popular [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme. I have
-been a Material user for a few years now, but am not affiliated with the team behind Material or
-Zensical in any way.
+behind the popular [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme.
 
 ## Quick start
 
