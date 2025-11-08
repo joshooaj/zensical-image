@@ -3,8 +3,7 @@
 [![Build](https://github.com/joshooaj/zensical-image/actions/workflows/ci.yml/badge.svg)](https://github.com/joshooaj/zensical-image/actions/workflows/ci.yml)
 ![Docker Image Version](https://img.shields.io/docker/v/joshooaj/zensical)
 
-
-![Screenshot of default Zensical site](default-site.png)
+![Screenshot of default Zensical site](https://raw.githubusercontent.com/joshooaj/zensical-image/main/default-site.png)
 
 This is an unofficial [Zensical](https://zensical.org/) container image for building and publishing
 static sites using content authored in markdown format. Zensical is a new SSG built by same folks
