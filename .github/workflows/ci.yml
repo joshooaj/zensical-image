@@ -28,7 +28,7 @@ jobs:
       - name: Get Zensical version
         shell: pwsh
         run: |
-          "ZENSICAL_VERSION=$(((cat req*.txt | sls '^zensical') -split '==')[1])" | Set-Content $GITHUB_ENV
+          "ZENSICAL_VERSION=$(((cat req*.txt | sls '^zensical') -split '==')[1])" | Set-Content $env:GITHUB_ENV
 
       - name: Docker meta
         id: meta
