@@ -31,7 +31,6 @@ jobs:
         with:
           images: |
             ${{ env.IMAGE_REPO }}
-            ghcr.io/${{ env.IMAGE_REPO }}
           tags: |
             type=schedule
             type=ref,event=branch
