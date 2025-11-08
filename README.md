@@ -1,5 +1,7 @@
 # Zensical Docker Image
 
+![Screenshot of default Zensical site](default-site.png)
+
 This is an unofficial [Zensical](https://zensical.org/) container image for building and publishing
 static sites using content authored in markdown format. Zensical is a new SSG built by same folks
 behind the popular [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) theme. I have
