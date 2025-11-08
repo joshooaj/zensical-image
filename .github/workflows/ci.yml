@@ -67,11 +67,3 @@ jobs:
             ZENSICAL_VERSION=${{ env.ZENSICAL_VERSION }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-      - name: Sync README to Docker Hub
-        uses: ms-jpq/sync-dockerhub-readme@e2991ea1ba48832e73555cdbd5b82f5a2e91ee9b
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: ${{ env.IMAGE_REPO }}
-          readme: "./README.md"
