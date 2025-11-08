@@ -31,6 +31,12 @@ docker run --rm -v ./mysite:/docs joshooaj/zensical build
 docker run --rm -v ./mysite:/docs joshooaj/zensical build --clean
 ```
 
+### NOTICE
+
+If you're using Docker Desktop on Windows, there's an issue with the way linux containers detect
+file changes when those changes are made from outside the container. Consider using a devcontainer
+for a better live editing experience if you're on Windows.
+
 ## Docker Compose
 
 ### Create a site if you don't have one already
