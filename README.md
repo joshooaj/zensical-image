@@ -1,5 +1,9 @@
 # Zensical Docker Image
 
+[![Build](https://github.com/joshooaj/zensical-image/actions/workflows/ci.yml/badge.svg)](https://github.com/joshooaj/zensical-image/actions/workflows/ci.yml)
+![Docker Image Version](https://img.shields.io/docker/v/joshooaj/zensical)
+
+
 ![Screenshot of default Zensical site](default-site.png)
 
 This is an unofficial [Zensical](https://zensical.org/) container image for building and publishing
